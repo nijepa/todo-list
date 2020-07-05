@@ -1,0 +1,222 @@
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+$color-blue: rgba(19,135,237,0.88);
+$color-green:rgba(89, 199, 103, 0.88);
+$color-yellow: rgba(231, 228, 29, 0.88);
+$color-red: rgba(202, 41, 41, 0.88);
+$color-blue-light: rgb(111, 194, 241);
+$color-green-light: rgba(173, 238, 182, 0.88);
+$color-yellow-light: rgba(241, 240, 162, 0.88);
+$color-red-light: rgba(240, 159, 159, 0.88);;
+
+@mixin marginPadding($margin, $padding) {
+	margin: $margin rem;
+	padding: $padding rem;
+}
+
+@mixin boxShadow($color1, $color2) {
+	-webkit-box-shadow: 6px 6px 4px 0px $color1;
+  -moz-box-shadow: 6px 6px 4px 0px $color1;
+  box-shadow: 6px 6px 4px 0px $color2;
+}
+
+.container {
+	margin: 1rem;
+}
+
+.projects-det {
+	cursor: pointer;
+	padding: .5rem;
+}
+
+.projects-det:hover {
+	color: white;
+	background-color: $color-blue;
+}
+
+.projects-list {
+	max-width: 250px;
+	float: left;
+}
+
+.projects-container {
+	margin: .2rem;
+	//float: right;
+}
+
+.project-btns {
+	display: inline-block;
+	justify-self: right;
+}
+
+.tasks {
+	display: grid;
+}
+
+.task-element {
+	cursor: pointer;
+	margin-right: .5rem;
+}
+
+.cont-projects {
+	//float: right;
+	padding: .5rem;;
+	display: grid;
+  grid-gap: 10px;
+  row-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+	@include boxShadow($color-blue, $color-blue-light);
+}
+
+.projects {
+	grid-gap: 10px;
+  row-gap: 10px;
+  row-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  margin: 1rem;
+  padding: 1rem;
+  @include boxShadow($color-blue, $color-blue-light);
+}
+
+.project-btns {
+	@include marginPadding(.2, .2);
+}
+
+.tasks {
+	display: flex;
+	justify-content: flex-start;
+	font-size: .8rem;
+  margin: .8rem;
+  padding: .5rem;
+  // border: 2px solid black;
+  border-radius: 2px;
+  @include boxShadow($color-blue, $color-blue-light);
+}
+
+.task-item {
+  margin: .3rem;
+  padding: .2rem;
+}
+
+input {
+	font-family: 'Oswald', sans-serif;
+}
+
+textarea {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1rem;
+}
+
+.task-item-radio {
+	display: inline-block;
+	margin: .2rem;
+	padding: .2rem;
+	input[type="radio"] {
+		opacity: 0;
+		position: fixed;
+    width: 0;
+    cursor: pointer;
+		&:focus {
+			+ {
+				label {
+					// border: 2px solid rgb(18, 118, 165);
+					@include boxShadow($color-blue, $color-blue-light);
+				}
+			}
+		}
+		&:checked {
+			+ {
+				label {
+					@include boxShadow($color-blue, $color-blue-light);
+					background-color: $color-blue-light;
+					//border-color: rgb(18, 118, 165); 
+				}
+			}
+		}
+	}
+	
+}
+
+.task-item-radio {
+  label {
+		display: inline-block;
+		background-color: white;
+		padding: 2px 2px;
+		font-size: .8rem;
+		//border: 2px solid rgb(18, 118, 165);
+    border-radius: 4px;
+    margin: .2rem;
+    cursor: pointer;
+		&:hover {
+			@include boxShadow($color-blue, $color-blue-light);
+			background-color: $color-blue-light;
+		}
+	}
+}
+
+.project-btn {
+	font-family: 'Oswald', sans-serif;
+	margin: .4rem;
+	padding: .2rem;
+	cursor: pointer;
+	background-color: white;
+	border: none;
+	border-radius: 2%;
+	@include boxShadow($color-blue, $color-blue-light);
+	&:hover {
+		@include boxShadow($color-blue, $color-blue-light);
+		background-color: $color-blue-light;
+	}
+}
+
+.low {
+	@include boxShadow($color-green, $color-green-light);
+	&:hover {
+		@include boxShadow($color-green, $color-green-light);
+		background-color: $color-green-light;
+	}
+}
+.medium {
+	@include boxShadow($color-yellow, $color-yellow-light);
+	&:hover {
+		@include boxShadow($color-yellow, $color-yellow-light);
+		background-color: $color-yellow-light;
+	}
+}
+
+.high {
+	@include boxShadow($color-red, $color-red-light);
+	&:hover {
+		@include boxShadow($color-red, $color-red-light);
+		background-color: $color-red-light;
+	}
+}
+
+#plus {
+	background-image: url('../images/new-white.png');
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	margin: .2rem;
+}
+
+#plus:hover {
+	background-image: url('../images/new-blue.png');
+}
+
+#new-project {
+	display: inline-flex;
+	align-items: baseline;
+}
+
+.pro-det {
+	-webkit-box-shadow: -6px -5px 5px 0px rgba(19,135,237,0.88);
+	-moz-box-shadow: -6px -5px 5px 0px rgba(19,135,237,0.88);
+	box-shadow: -6px -5px 5px 0px rgba(19,135,237,0.88);
+	color: $color-blue;
+/* 	color: white;
+	border-radius: 2%;
+	background-color: rgba(19,135,237,0.88); */
+}
